@@ -1,127 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yujie Shen | Personal Homepage</title>
-    <style>
-        body {
-            background-color: #f0f2f5;
-            font-family: "Segoe UI", sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 60px auto;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            padding: 40px 30px;
-        }
-        h1 {
-            font-size: 3rem;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        .social {
-            margin-top: 20px;
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yujie Shen | Personal Homepage</title>
-    <style>
-        body {
-            background-color: #f0f2f5;
-            font-family: "Segoe UI", sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 60px auto;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            padding: 40px 30px;
-        }
-        h1 {
-            font-size: 3rem;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        .social {
-            margin-top: 20px;
-        }
-        .social a {
-            display: inline-block;
-            margin: 0 12px;
-            color: #0077ff;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-        .contact {
-            color: #555;
-            font-size: 1rem;
-        }
-        hr {
-            border: none;
-            border-top: 1px solid #eee;
-            margin: 32px 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Homepage</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #fff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e3e3e3;
+      --accent: #2b6cb0;
+      --radius: 16px;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --max-width: 1100px;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 320px) 1fr;
+      gap: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sidebar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 24px;
+      align-self: start;
+    }
+
+    .avatar {
+      width: 128px;
+      height: 128px;
+      border-radius: 999px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 18px;
+      border: 3px solid var(--border);
+      background: #ddd;
+    }
+
+    .name {
+      text-align: center;
+      margin: 0;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin: 6px 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section h2 {
+      margin: 0 0 16px;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .bio {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .fact-list {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fact-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .fact-list li:first-child {
+      border-top: none;
+    }
+
+    .fact-list svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .news ul {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .news li {
+      margin-bottom: 12px;
+    }
+
+    .news time {
+      font-weight: 600;
+      margin-right: 8px;
+      color: var(--text);
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .pub-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .pub-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .pub-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .pub-card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pub-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(43, 108, 176, 0.35);
+      background: rgba(43, 108, 176, 0.1);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .button:hover {
+      background: rgba(43, 108, 176, 0.2);
+    }
+
+    /* small icon placeholders */
+    .icon {
+      display: inline-flex;
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.1);
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Yujie Shen</h1>
-        <div class="subtitle">Welcome to my personal homepage</div>
+  <div class="container">
+    <div class="layout">
+      <aside class="sidebar">
+        <img class="avatar" src="https://via.placeholder.com/256" alt="Profile photo" />
+        <h1 class="name">Your Name</h1>
+        <p class="subtitle">Your University</p>
 
-        <section>
-            <h2>About Me</h2>
-            <p>
-                Hello! I'm Yujie Shen, a passionate web developer and programmer from China.
-                (Feel free to add your hobbies, skills, or experiences here)
-            </p>
+        <div class="section">
+          <h2>About</h2>
+          <p class="bio">
+            This is a short introduction about yourself. It can mention your research interests,
+            current status, and what you are looking for.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Details</h2>
+          <ul class="fact-list">
+            <li>
+              <span class="icon">📍</span>
+              <span>City, Country</span>
+            </li>
+            <li>
+              <span class="icon">✉️</span>
+              <span><a href="mailto:email@example.com">email@example.com</a></span>
+            </li>
+            <li>
+              <span class="icon">🐙</span>
+              <span><a href="#">Github</a></span>
+            </li>
+            <li>
+              <span class="icon">🎓</span>
+              <span><a href="#">Google Scholar</a></span>
+            </li>
+            <li>
+              <span class="icon">💬</span>
+              <span><a href="#">WeChat</a></span>
+            </li>
+            <li>
+              <span class="icon">📝</span>
+              <span><a href="#">Blog / Notes</a></span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="section">
+          <h2>News</h2>
+          <ul class="news">
+            <li>
+              <time datetime="2026-03">2026.03</time>
+              <span>Placeholder news item about a submission or acceptance.</span>
+            </li>
+            <li>
+              <time datetime="2026-02">2026.02</time>
+              <span>Placeholder news item about a result or update.</span>
+            </li>
+            <li>
+              <time datetime="2026-01">2026.01</time>
+              <span>Placeholder news item describing a new role or milestone.</span>
+            </li>
+            <li>
+              <time datetime="2025-08">2025.08</time>
+              <span>Placeholder news item about a paper acceptance or award.</span>
+            </li>
+            <li>
+              <time datetime="2025-07">2025.07</time>
+              <span>Placeholder news item about a project or conference presentation.</span>
+            </li>
+            <li>
+              <time datetime="2024-10">2024.10</time>
+              <span>Placeholder news item about joining a lab or starting an internship.</span>
+            </li>
+          </ul>
         </section>
 
-        <section>
-            <h2>Contact Information</h2>
-            <p class="contact">
-                Email: your.email@example.com<br>
-                WeChat: your_wechat_id
-                <!-- Add other contact details here -->
-            </p>
-        </section>
+        <section class="section">
+          <h2>Selected Publications</h2>
+          <div class="publication">
+            <article class="pub-card">
+              <img src="https://via.placeholder.com/320x220" alt="Publication figure" />
+              <div>
+                <h3><a href="#">Title of a placeholder publication</a></h3>
+                <p class="pub-meta">
+                  Your Name, Co-author One, Co-author Two, ...<br />
+                  Conference/Journal (Year)
+                </p>
+                <p>
+                  Short abstract-style description of the work. Keep it concise and highlight the key
+                  idea and why it is interesting.
+                </p>
+                <a class="button" href="#">
+                  <span class="icon">📄</span>
+                  <span>View paper</span>
+                </a>
+              </div>
+            </article>
 
-        <hr>
-
-        <section>
-            <h2>Social Links</h2>
-            <div class="social">
-                <a href="https://github.com/JJayshum" target="_blank">GitHub</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-                <a href="https://twitter.com" target="_blank">Twitter</a>
-                <!-- Add more links as needed -->
-            </div>
+            <article class="pub-card">
+              <img src="https://via.placeholder.com/320x220" alt="Publication figure" />
+              <div>
+                <h3><a href="#">Another placeholder publication</a></h3>
+                <p class="pub-meta">
+                  Your Name, Co-author Three, Co-author Four, ...<br />
+                  Conference/Journal (Year)
+                </p>
+                <p>
+                  A short description of the second publication, highlighting the contributions and
+                  any unique methods or results.
+                </p>
+                <a class="button" href="#">
+                  <span class="icon">📄</span>
+                  <span>View paper</span>
+                </a>
+              </div>
+            </article>
+          </div>
         </section>
+      </main>
     </div>
+  </div>
 </body>
 </html>
